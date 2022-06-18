@@ -28,7 +28,8 @@ You can run this command on your terminal:
 
 >`$ docker build [OPTIONS] PATH | URL | -` 
 >
-> ----------------------------------------------------
+ ----------------------------------------------------
+
 `--file , -f` Name of the Dockerfile (Default is 'PATH/Dockerfile')
  
 `-t`, --tag list Name and optionally a tag in the 'name:tag' format`
