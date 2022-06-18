@@ -66,7 +66,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 `--publish , -p` Publish a container's port(s) to the host
 
->$docker run -p 3001:3001 -d cat_dog_vote_server:dev
+`$ docker run -p 3001:3001 -d cat_dog_vote_server:dev`
 
 <br>
 
@@ -76,14 +76,10 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 <br>
 
 ### remote into the running container
-`docker exec -it cat_dog_vote_server /bin/sh`
+`$ docker exec -it cat_dog_vote_server /bin/sh`
 
 <br>
-
-### run nodejs (ctrl+D to exit)
-`node`
-
-<br>
+S
 
 ### look at container information
 `$ docker inspect cat_dog_vote_server`
