@@ -45,7 +45,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 <br>
 
-### Let's build our image and give a tag name 'version_1.0'
+### Let's build our image and give a tag name 'dev'
 
 `$ docker build -t cat_dog_vote_server:dev ./`
 
