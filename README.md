@@ -1,44 +1,53 @@
 # Getting Started with Docker
 
-Mac users need to install [Docker](https://docs.docker.com/get-docker/).
+Install from **[Docker](https://docs.docker.com/get-docker/)**.
+
+>"The Docker platform runs natively on Linux (on x86-64, ARM and many other CPU architectures) and on Windows (x86-64). Docker Inc. builds products that let you build and run containers on Linux, Windows and macOS."
+> 
+> For more information visit:
+> **https://docs.docker.com/**
 
 <br>
 
 ### How to check your Docker Version:
 
-You can run this command on your terminal:
-### `$ docker version`
+Run this command on your terminal:
+
+`$ docker version`
 
 <br>
 
 
-### download nodejs image
+### Download a specific nodejs image
+
+You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
+
 `$ docker pull node:18-alpine3.15`
 
 <br>
 
 
-### view downloaded image
+### view downloaded/built images
 `$ docker images`
 
 <br>
 
 ### build your docker image
-- Usage:
+&emsp; Usage:
 
->`$ docker build [OPTIONS] PATH | URL | -` 
->
- ----------------------------------------------------
+>$ docker build [OPTIONS] PATH | URL | -
+
+ ---
 
 `--file , -f` Name of the Dockerfile (Default is 'PATH/Dockerfile')
  
-`-t`, --tag list Name and optionally a tag in the 'name:tag' format`
+`-t, --tag` list Name and optionally a tag in the 'name:tag' format`
 
 <br>
 
 ### Let's build our image and give a tag name 'version_1.0'
 
-`$ docker build -t cat_dog_vote_image:version_1.0 ./`
+`$ docker build -t cat_dog_vote_server:dev ./`
 
 <br>
 
@@ -46,8 +55,8 @@ You can run this command on your terminal:
 
 #### Usage:
 > $ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-> 
-----------------------------------------------------
+
+---
 
 `-i` for interactive mode
  
@@ -57,7 +66,7 @@ You can run this command on your terminal:
 
 `--publish , -p` Publish a container's port(s) to the host
 
->$docker run -p 3000:3000 -d cat_dog_vote_image 
+>$docker run -p 3001:3001 -d cat_dog_vote_server:dev
 
 <br>
 
@@ -67,7 +76,7 @@ You can run this command on your terminal:
 <br>
 
 ### remote into the running container
-`docker exec -it learning_docker /bin/sh`
+`docker exec -it cat_dog_vote_server /bin/sh`
 
 <br>
 
@@ -77,31 +86,31 @@ You can run this command on your terminal:
 <br>
 
 ### look at container information
-`$ docker inspect learning_docker`
+`$ docker inspect cat_dog_vote_server`
 
 <br>
 
 
 ### look at the logs
-`$ docker logs learning_docker`
+`$ docker logs cat_dog_vote_server`
 
 <br>
 
 
 ### stop container
-`$ docker stop learning_docker`
+`$ docker stop cat_dog_vote_server`
 
 <br>
 
 
 ### start container again
-`$ docker start learning_docker`
+`$ docker start cat_dog_vote_server`
 
 <br>
 
 
 ### remove container
-`$ docker rm learning_docker`
+`$ docker rm cat_dog_vote_server`
 
 <br>
 
@@ -109,4 +118,4 @@ You can run this command on your terminal:
 `$ docker rm $(docker ps --filter status=exited -q)`
 
 ### remove image
-`$ docker rmi node:16-alpine3.12`
+`$ docker rmi cat_dog_vote_server`
