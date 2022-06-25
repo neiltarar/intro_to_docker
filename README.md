@@ -70,7 +70,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 `--rm` Automatically remove the container once it has stopped 
 
-`--volume, -v` Allows you to bind a local directory
+`--volume, -v` Allows you to bind a local directory. For more information check **[here](https://docs.docker.com/storage/bind-mounts/)**
 
 `$ docker run --rm -it --name cat_dog_vote_dashboard -p 3000:3000 -v $(pwd):/app cat_dog_vote_dashboard:dev`
 
