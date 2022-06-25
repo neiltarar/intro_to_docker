@@ -90,9 +90,11 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 <br>
 
-## Here are so handy commands:
+## Here are some handy commands:
 
 ---
+
+<details><summary><b>Commands:</b></summary>
 
 ### view running container
 `docker ps`
@@ -140,3 +142,5 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 ### remove image
 `$ docker rmi cat_dog_vote_server`
+
+</details>
