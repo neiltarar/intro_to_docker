@@ -1,0 +1,19 @@
+.vote-section{
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+}
+
+.cats, .dogs {
+    padding: 50px;
+    border: solid 1px grey;
+    width: 20vw;
+}
+
+.cats {
+    background-color: aqua;
+}
+
+.dogs {
+    background-color: cornflowerblue;
+}

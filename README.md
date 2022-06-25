@@ -64,9 +64,11 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
  
 `-d` for detach
 
+`--name` Assign a name to the container
+
 `--publish , -p` Publish a container's port(s) to the host
 
-`$ docker run -p 3001:3001 -d cat_dog_vote_server:dev`
+`$ docker run --name cat_dog_vote_server -p 3001:3001 -d cat_dog_vote_server:dev`
 
 <br>
 
