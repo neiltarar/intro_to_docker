@@ -1,5 +1,9 @@
 # Getting Started with Docker
 
+This is a small cheatsheet for developers getting started with Docker.
+
+---
+
 Install from **[Docker](https://docs.docker.com/get-docker/)**.
 
 >"The Docker platform runs natively on Linux (on x86-64, ARM and many other CPU architectures) and on Windows (x86-64). Docker Inc. builds products that let you build and run containers on Linux, Windows and macOS."
@@ -22,7 +26,7 @@ Run this command on your terminal:
 
 You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
-`$ docker pull node:18-alpine3.15`
+`$ docker pull node:16.15.1-alpine3.15`
 
 <br>
 
@@ -91,8 +95,6 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 <br>
 
 ## Here are some handy commands:
-
----
 
 <details><summary><b>Commands:</b></summary>
 

@@ -6,8 +6,8 @@ const app = express();
 const port = 3001;
 
 let votingScores = {
-    cats: 10,
-    dogs: 20
+    cats: 0,
+    dogs: 0
 }
 
 // Start listening for HTTP requests on port 3001
