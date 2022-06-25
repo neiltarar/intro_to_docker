@@ -1,8 +1,25 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Vote from "./components /Vote";
+import {useState} from "react";
+import {Vote} from "./components /Vote";
 
-function App() {
+const App: React.FC = () => {
+    const [catVote, setCatVote] = useState(0);
+    const [dogVote, setDogVote] = useState(0);
+
+    const handleClick = (event: React.MouseEvent) => {
+        const eventTarget = event.target as HTMLElement
+        const parentElement = eventTarget.parentElement as HTMLDivElement;
+
+        if(eventTarget.className === 'cats' || parentElement.className === 'cats'){
+            const newVoteValue:number = catVote + 1
+            setCatVote(newVoteValue)
+        } if (eventTarget.className === 'dogs' || parentElement.className === 'dogs') {
+            const newVoteValue:number = dogVote + 1
+            setDogVote(newVoteValue)
+        }
+    }
+
     return (
         <div style={{
             width: '100%',
@@ -24,7 +41,12 @@ function App() {
                     margin: '100px'
                 }}
             >
-                <Vote />
+                <Vote
+                    catVote={catVote}
+                    dogVote={dogVote}
+                    handleClick={handleClick}
+                    animals={{firstAnimal:'cat', secondAnimal:'dog'}}
+                />
             </Box>
         </div>
     );

@@ -32,8 +32,11 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 <br>
 
-### build your docker image
-&emsp; Usage:
+## Build your docker image
+
+<details>
+
+<summary><b>&emsp; Usage:</b></summary>
 
 >$ docker build [OPTIONS] PATH | URL | -
 
@@ -43,17 +46,22 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
  
 `-t, --tag` list Name and optionally a tag in the 'name:tag' format`
 
-<br>
+</details>
+
+<br/>
 
 ### Let's build our image and give a tag name 'dev'
 
 `$ docker build -t cat_dog_vote_server:dev ./`
 
-<br>
+<br/>
 
 ## Run a nodejs container
 
-#### Usage:
+<details>
+
+<summary><b> Usage: </b></summary>
+
 > $ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ---
@@ -72,9 +80,19 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 `--volume, -v` Allows you to bind a local directory. For more information check **[here](https://docs.docker.com/storage/bind-mounts/)**
 
+</details>
+
+<br/>
+
+### Let's write our command to run our container for the image:
+
 `$ docker run --rm -it --name cat_dog_vote_dashboard -p 3000:3000 -v $(pwd):/app cat_dog_vote_dashboard:dev`
 
 <br>
+
+## Here are so handy commands:
+
+---
 
 ### view running container
 `docker ps`
@@ -85,7 +103,6 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 `$ docker exec -it cat_dog_vote_server /bin/sh`
 
 <br>
-S
 
 ### look at container information
 `$ docker inspect cat_dog_vote_server`
@@ -118,6 +135,8 @@ S
 
 ### remove all stopped containers
 `$ docker rm $(docker ps --filter status=exited -q)`
+
+<br>
 
 ### remove image
 `$ docker rmi cat_dog_vote_server`

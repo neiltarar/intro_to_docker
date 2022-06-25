@@ -1,7 +1,25 @@
 import '../Vote.css'
+import React from 'react'
 import Grid from '@mui/material/Grid';
 
-export default function Vote() {
+interface Animals {
+    firstAnimal: string;
+    secondAnimal: string;
+}
+
+interface Props {
+    catVote: number;
+    dogVote: number;
+    handleClick: (event: React.MouseEvent) => void;
+    animals?: Animals;
+}
+
+export const Vote: React.FC<Props> = ({
+                                          catVote,
+                                          dogVote,
+                                          handleClick,
+                                          animals
+                                      }) => {
     return (
         <section className={'vote-section'}>
             <h1>Cats vs Dogs!</h1>
@@ -11,15 +29,16 @@ export default function Vote() {
                 justifyContent="space-around"
                 alignItems="center"
             >
-                <div className={'cats'}>
-                    <p>Cats</p>
-                    <p>1</p>
+                <div onClick={handleClick} className={'cats'}>
+                    <p>{animals?.firstAnimal}</p>
+                    <p>{catVote}</p>
                 </div>
-                <div className={'dogs'}>
+                <div onClick={handleClick} className={'dogs'}>
                     <p>Dogs</p>
-                    <p>0</p>
+                    <p>{dogVote}</p>
                 </div>
             </Grid>
         </section>
     )
 };
+
