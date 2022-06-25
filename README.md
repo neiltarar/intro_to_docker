@@ -86,7 +86,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 ### Let's write our command to run our container for the image:
 
-`$ docker run --rm -it --name cat_dog_vote_dashboard -p 3000:3000 -v $(pwd):/app cat_dog_vote_dashboard:dev`
+`$ docker run --rm -it --name cat_dog_vote_server -p 3001:3001 -v $(pwd):/app cat_dog_vote_server:dev`
 
 <br>
 

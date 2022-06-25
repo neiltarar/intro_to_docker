@@ -1,21 +1,39 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Vote} from "./components /Vote";
 
 const App: React.FC = () => {
     const [catVote, setCatVote] = useState(0);
     const [dogVote, setDogVote] = useState(0);
 
+    const getVotes = () => {
+        fetch('/voting-scores', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                setCatVote(res.cats);
+                setDogVote(res.dogs);
+            });
+    };
+
+    useEffect(getVotes, []);
+
     const handleClick = (event: React.MouseEvent) => {
         const eventTarget = event.target as HTMLElement
         const parentElement = eventTarget.parentElement as HTMLDivElement;
 
-        if(eventTarget.className === 'cats' || parentElement.className === 'cats'){
-            const newVoteValue:number = catVote + 1
+        if (eventTarget.className === 'cats' || parentElement.className === 'cats') {
+            const newVoteValue: number = catVote + 1
             setCatVote(newVoteValue)
-        } if (eventTarget.className === 'dogs' || parentElement.className === 'dogs') {
-            const newVoteValue:number = dogVote + 1
+        }
+        if (eventTarget.className === 'dogs' || parentElement.className === 'dogs') {
+            const newVoteValue: number = dogVote + 1
             setDogVote(newVoteValue)
         }
     }
@@ -45,7 +63,7 @@ const App: React.FC = () => {
                     catVote={catVote}
                     dogVote={dogVote}
                     handleClick={handleClick}
-                    animals={{firstAnimal:'cat', secondAnimal:'dog'}}
+                    animals={{firstAnimal: 'cat', secondAnimal: 'dog'}}
                 />
             </Box>
         </div>

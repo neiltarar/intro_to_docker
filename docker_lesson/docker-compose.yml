@@ -1,0 +1,38 @@
+version: "3.7"
+
+networks:
+  voting-app:
+
+services:
+  dashboard:
+
+    restart: always
+
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./client:/app
+
+    networks:
+      - voting-app
+
+  api:
+    restart: always
+
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+
+    ports:
+      - "3001:3001"
+
+    volumes:
+      - ./server:/app
+
+    networks:
+      - voting-app

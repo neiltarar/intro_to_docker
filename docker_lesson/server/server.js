@@ -5,9 +5,23 @@ const path = require("path");
 const app = express();
 const port = 3001;
 
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "../client/build")));
+let votingScores = {
+    cats: 10,
+    dogs: 20
+}
 
+// Start listening for HTTP requests on port 3001
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
+
+app.use(express.json());
+
+app.get('/voting-scores', (req, res) => {
+    res.json(votingScores)
+})
+
+
+
+// app.use(express.static(path.join(__dirname, "../client/build")));
+

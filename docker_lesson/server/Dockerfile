@@ -5,18 +5,18 @@ FROM node:16.15.1-alpine3.15
 WORKDIR /app
 
 # copy required files
-COPY package.json ./app/package.json
-COPY package-lock.json ./app/package-lock.json
+COPY package.json ./
+COPY package-lock.json ./
 
 # install packages
 RUN npm install
 
 # copy source code
-COPY ../client ./client/build
-COPY server.js ./server.js
+#COPY ../client ./client/build
+COPY server.js ./
 
 # copy source code
-COPY .. .
+COPY . .
 
 # expose port 3001 to the host
 EXPOSE 3001
