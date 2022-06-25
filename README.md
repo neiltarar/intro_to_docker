@@ -68,7 +68,11 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 `--publish , -p` Publish a container's port(s) to the host
 
-`$ docker run --name cat_dog_vote_server -p 3001:3001 -d cat_dog_vote_server:dev`
+`--rm` Automatically remove the container once it has stopped 
+
+`--volume, -v` Allows you to bind a local directory
+
+`$ docker run --rm -it --name cat_dog_vote_dashboard -p 3000:3000 -v $(pwd):/app cat_dog_vote_dashboard:dev`
 
 <br>
 

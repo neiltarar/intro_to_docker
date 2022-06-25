@@ -13,7 +13,7 @@ export default function Vote() {
             >
                 <div className={'cats'}>
                     <p>Cats</p>
-                    <p>0</p>
+                    <p>1</p>
                 </div>
                 <div className={'dogs'}>
                     <p>Dogs</p>

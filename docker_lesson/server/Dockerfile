@@ -1,11 +1,13 @@
 # specify a base image
-FROM node:18-alpine3.15
+FROM node:16.15.1-alpine3.15
 
 # create and use a working directory in the image
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # copy required files
-COPY package*.json ./
+COPY package.json ./app/package.json
+COPY package-lock.json ./app/package-lock.json
+
 # install packages
 RUN npm install
 
