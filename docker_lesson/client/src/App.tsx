@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import {useState, useEffect} from "react";
 import {Vote} from "./components /Vote";
-import {json} from "stream/consumers";
 
 const App = (): JSX.Element => {
     const [catVote, setCatVote] = useState<any>(null);
@@ -84,7 +83,7 @@ const App = (): JSX.Element => {
                     catVote={catVote}
                     dogVote={dogVote}
                     handleClick={handleClick}
-                    animals={{firstAnimal: 'cat', secondAnimal: 'dog'}}
+                    animals={{firstAnimal: 'Cats', secondAnimal: 'Dogs'}}
                 />
             </Box>
         </div>
