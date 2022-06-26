@@ -94,7 +94,33 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 <br>
 
-## Here are some handy commands:
+## Docker-Compose:
+
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. You can learn more about it **[here](https://docs.docker.com/compose/)**.
+
+To start your docker containers, networks with **[docker-compose](https://docs.docker.com/engine/reference/commandline/compose_down/)**:
+
+<details><summary><b>Options:</b></summary>
+
+```shell
+--remove-orphans		# Remove containers for services not defined in the Compose file.
+--rmi		                # Remove images used by services. "local" remove only images that don't have a custom tag ("local"|"all")
+--timeout , -t	10	        # Specify a shutdown timeout in seconds
+--volumes , -v		        # Remove named volumes declared in the volumes section of the Compose file and anonymous volumes attached to containers.
+```
+
+</details>
+
+`$ docker-compose up`
+
+To stop and remove your containers, networks:
+
+`$ docker-compose down`
+
+---
+
+
+## Here are some handy docker commands:
 
 <details><summary><b>Commands:</b></summary>
 
