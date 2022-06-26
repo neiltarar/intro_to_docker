@@ -12,11 +12,12 @@ COPY package-lock.json ./
 RUN npm install
 
 # copy source code
-#COPY ../client ./client/build
 COPY server.js ./
 
+COPY build ./
+
 # copy source code
-COPY . .
+#COPY . .
 
 # expose port 3001 to the host
 EXPOSE 3001
