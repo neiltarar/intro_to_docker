@@ -1,4 +1,4 @@
-# Getting Started with Docker
+<h1 style="font-size: 32pt; padding-bottom: 30px"> Getting Started with Docker </h1>
 
 This is a small cheatsheet for developers getting started with Docker.
 
@@ -22,7 +22,7 @@ Run this command on your terminal:
 <br>
 
 
-### Download a specific nodejs image
+### Download a specific nodejs image:
 
 You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
@@ -31,7 +31,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 <br>
 
 
-### view downloaded/built images
+### View downloaded/built images:
 `$ docker images`
 
 <br>
@@ -55,6 +55,8 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 <br/>
 
 ### Let's build our image and give a tag name 'dev'
+
+instead of `cat_dog_vote_server` give your own name to your image. Otherwise Docker will automatically assign a name. After `:` you can give your own tag such as `dev`, `production`, `latest` etc.
 
 `$ docker build -t cat_dog_vote_server:dev ./`
 
@@ -89,6 +91,8 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 <br/>
 
 ### Let's write our command to run our container for the image:
+
+Again give your own name to the container you will be running. Your container name will come after `--name` tag. 
 
 `$ docker run --rm -it --name cat_dog_vote_server -p 3001:3001 -v $(pwd):/app cat_dog_vote_server:dev`
 
