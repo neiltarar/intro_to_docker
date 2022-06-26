@@ -1,4 +1,4 @@
-<h1 style="font-size: 32pt; padding-bottom: 30px"> Getting Started with Docker </h1>
+<h1 style="font-size: 32pt; padding-bottom: 30px; border-bottom: none;"> Getting Started with Docker </h1>
 
 This is a small cheatsheet for developers getting started with Docker.
 
@@ -56,7 +56,7 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 ### Let's build our image and give a tag name 'dev'
 
-instead of `cat_dog_vote_server` give your own name to your image. Otherwise Docker will automatically assign a name. After `:` you can give your own tag such as `dev`, `production`, `latest` etc.
+instead of `cat_dog_vote_server` give your own name to your image. Otherwise, Docker will automatically assign a name. After `:` you can give your own tag such as `dev`, `production`, `latest` etc.
 
 `$ docker build -t cat_dog_vote_server:dev ./`
 
