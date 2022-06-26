@@ -10,16 +10,16 @@ interface Animals {
 interface Props {
     catVote: number;
     dogVote: number;
-    handleClick: (event: React.MouseEvent) => void;
+    handleClick: (event: React.MouseEvent) => void
     animals?: Animals;
 }
 
-export const Vote: React.FC<Props> = ({
-                                          catVote,
-                                          dogVote,
-                                          handleClick,
-                                          animals
-                                      }) => {
+export const Vote = ({
+                         catVote,
+                         dogVote,
+                         handleClick,
+                         animals
+                     }: Props): JSX.Element => {
     return (
         <section className={'vote-section'}>
             <h1>Cats vs Dogs!</h1>

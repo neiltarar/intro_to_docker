@@ -6,7 +6,7 @@ const app = express();
 const port = 3001;
 
 let votingScores = {
-    cats: 0,
+    cats: 30,
     dogs: 0
 }
 

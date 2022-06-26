@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+# React-TypeScript Cheatsheet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple cheatsheet for developers that are starting to use TypeScript with React for the first time. This is just a small entry point and does not have a comprehensive introduction to TypeScript. Official documentation for ***[TypeScript](https://www.typescriptlang.org/docs/handbook/react.html)*** will be a good starting point.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+### Virtual Sandboxes to practice Type-Script 
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can practice on these cloud setups:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [CodeSandbox](https://codesandbox.io/s/react-ts?utm_source=dotnew) - A cloud IDE 
+- [Stackblitz](https://stackblitz.com/edit/react-typescript-base?file=index.tsx) - A cloud IDE
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Creating a React-TypeScript App
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can create a new React App using templates
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`$ npx create-react-app my-app --template typescript`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+### Start your app
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`$ npm run start` or `$ npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Basic Prop Types Examples:
 
-## Learn More
+A list of TypeScript types you will likely use in a React+TypeScript app:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details><summary><b>Prop Type Examples:</b></summary>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```tsx
+interface AppProps {
+  message: string;
+  count: number;
+  disabled: boolean;
+  /** array of a type! */
+  names: string[];
+  /** string literals to specify exact string values, with a union type to join them together */
+  status: "waiting" | "success";
+  /** any object as long as you dont use its properties (NOT COMMON but useful as placeholder) */
+  obj: object;
+  obj2: {}; // almost the same as `object`, exactly the same as `Object`
+  /** an object with any number of properties (PREFERRED) */
+  obj3: {
+    id: string;
+    title: string;
+  };
+  /** array of objects! (common) */
+  objArr: {
+    id: string;
+    title: string;
+  }[];
+  /** a dict object with any number of properties of the same type */
+  dict1: {
+    [key: string]: MyTypeHere;
+  };
+  dict2: Record<string, MyTypeHere>; // equivalent to dict1
+  /** any function as long as you don't invoke it (not recommended) */
+  onSomething: Function;
+  /** function that doesn't take or return anything (VERY COMMON) */
+  onClick: () => void;
+  /** function with named prop (VERY COMMON) */
+  onChange: (id: number) => void;
+  /** function type syntax that takes an event (VERY COMMON) */
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** alternative function type syntax that takes an event (VERY COMMON) */
+  onClick(event: React.MouseEvent<HTMLButtonElement>): void;
+  /** an optional prop (VERY COMMON!) */
+  optional?: OptionalType;
+};
+```
+
+Notice we have used the TSDoc `/** comment */` style here on each prop. You can and are encouraged to leave descriptive comments on reusable components. For a fuller example and discussion, see our [Commenting Components](https://react-typescript-cheatsheet.netlify.app/docs/advanced/misc_concerns/#commenting-components) section in the Advanced Cheatsheet.
+
+</details>
+
+---
+
+<br>
+
+#### Functional Components
+
+These can be written as normal functions that take a `props` argument and return a JSX element.
+
+<details><summary><b>Functional Component Props:</b></summary>
+
+```tsx
+// Declaring type of props - see "Typing Component Props" for more examples
+type AppProps = {
+  message: string;
+}; /* use `interface` if exporting so that consumers can extend */
+
+// Easiest way to declare a Function Component; return type is inferred.
+const App = ({ message }: AppProps) => <div>{message}</div>;
+
+// you can choose annotate the return type so an error is raised if you accidentally return some other type
+const App = ({ message }: AppProps): JSX.Element => <div>{message}</div>;
+
+// you can also inline the type declaration; eliminates naming the prop types, but looks repetitive
+const App = ({ message }: { message: string }) => <div>{message}</div>;
+```
+
+</details>
+
+---

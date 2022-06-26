@@ -146,3 +146,15 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 `$ docker rmi cat_dog_vote_server`
 
 </details>
+
+<br>
+
+### Deployment options:
+
+---
+
+Basically you can deploy your container on any `Containers as a service (CaaS)` cloud service provider.
+
+#### **Heroku**:
+
+There is an officially supported `Heroku.yml` solution offered by Heroku. You can now write a `.yml` file (with a format similar to docker-compose) and Heroku will work out your images. Just follow **[this link](https://devcenter.heroku.com/categories/deploying-with-docker)** above for details.

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import {useState, useEffect} from "react";
 import {Vote} from "./components /Vote";
 
-const App: React.FC = () => {
+const App = (): JSX.Element => {
     const [catVote, setCatVote] = useState(0);
     const [dogVote, setDogVote] = useState(0);
 
