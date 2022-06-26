@@ -2,37 +2,58 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import {useState, useEffect} from "react";
 import {Vote} from "./components /Vote";
+import {json} from "stream/consumers";
 
 const App = (): JSX.Element => {
-    const [catVote, setCatVote] = useState(0);
-    const [dogVote, setDogVote] = useState(0);
+    const [catVote, setCatVote] = useState<any>(null);
+    const [dogVote, setDogVote] = useState<any>(null);
 
-    const getVotes = () => {
-        fetch('/voting-scores', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(res => res.json())
+    interface voteObject {
+        cats: number;
+        dogs: number;
+    }
+
+    const getVotes = (url: string) => {
+        fetch(url)
+            .then(res => res.json() as Promise<voteObject>)
             .then(res => {
-                console.log(res)
                 setCatVote(res.cats);
                 setDogVote(res.dogs);
-            });
+            })
     };
 
-    useEffect(getVotes, []);
+    const updateVotes = (url: string, newVote: {}) => {
+        if (dogVote !== null && catVote !== null) {
+            fetch(url, {
+                method: 'POST',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify(newVote)
+            })
+                .then(res => res.json())
+                .then(res => console.log(res))
+        }
+    }
+
+    useEffect(() => {
+        (async () => {
+            await getVotes('/get-scores')
+        })()
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            await updateVotes('/update-scores', {cats: catVote, dogs: dogVote})
+        })()
+    }, [catVote, dogVote])
 
     const handleClick = (event: React.MouseEvent) => {
         const eventTarget = event.target as HTMLElement
         const parentElement = eventTarget.parentElement as HTMLDivElement;
 
         if (eventTarget.className === 'cats' || parentElement.className === 'cats') {
-            const newVoteValue: number = catVote + 1
+            const newVoteValue: number = 1 + catVote
             setCatVote(newVoteValue)
-        }
-        if (eventTarget.className === 'dogs' || parentElement.className === 'dogs') {
+        }else if (eventTarget.className === 'dogs' || parentElement.className === 'dogs') {
             const newVoteValue: number = dogVote + 1
             setDogVote(newVoteValue)
         }
