@@ -36,6 +36,26 @@ You can find official images on **[dockerhub](https://hub.docker.com/_/node)**.
 
 <br>
 
+### Check containers:
+
+`$ docker ps [OPTIONS]`
+
+<details><summary><b>Options:</b></summary>
+
+```shell
+--all , -a		# Show all containers (default shows just running)
+--filter , -f		# Filter output based on conditions provided
+--format		# Pretty-print containers using a Go template
+--last , -n	-1	# Show n last created containers (includes all states)
+--latest , -l		# Show the latest created container (includes all states)
+--no-trunc		# Don't truncate output
+--quiet , -q		# Only display container IDs
+--size , -s		# Display total file sizes
+```
+
+</details>
+
+
 ## Build your docker image
 
 <details>
