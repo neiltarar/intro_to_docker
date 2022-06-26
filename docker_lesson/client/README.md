@@ -96,7 +96,7 @@ These can be written as normal functions that take a `props` argument and return
 <details><summary><b>Functional Component Props:</b></summary>
 
 ```tsx
-// Declaring type of props - see "Typing Component Props" for more examples
+// Declaring type of props 
 type AppProps = {
   message: string;
 }; /* use `interface` if exporting so that consumers can extend */
