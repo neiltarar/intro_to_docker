@@ -136,6 +136,12 @@ To start your docker containers, networks with **[docker-compose](https://docs.d
 
 </details>
 
+Build and run your images in a container:
+
+`$ docker-compose up --build`
+
+Run your built images in a container:
+
 `$ docker-compose up`
 
 To stop and remove your containers, networks:
