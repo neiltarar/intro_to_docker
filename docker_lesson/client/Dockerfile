@@ -11,8 +11,7 @@ COPY package-lock.json ./
 RUN npm install
 
 # copy the source code to the working directory
-COPY . ./public
-COPY . ./src
+COPY . .
 
 # expose port 3000 to the host
 EXPOSE 3000
