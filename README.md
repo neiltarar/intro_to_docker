@@ -215,3 +215,76 @@ Basically you can deploy your container on any `Containers as a service (CaaS)` 
 #### **Heroku**:
 
 There is an officially supported `Heroku.yml` solution offered by Heroku. You can now write a `.yml` file (with a format similar to docker-compose) and Heroku will work out your images. Just follow **[this link](https://devcenter.heroku.com/categories/deploying-with-docker)** above for details.
+
+
+### ExpressJS with Typescript
+
+# Initialise the Project
+```shell
+mkdir my-express-ts-app
+cd my-express-ts-app
+npm init -y
+```
+
+# Install Dependencies
+```shell
+npm install --save-dev typescript ts-node @types/node nodemon 
+npm install express
+```
+
+# Create a tsconfig.json file
+```shell
+npx tsc --init
+```
+
+# Update tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+    }
+}
+```
+
+# Update package.json
+```json
+{
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p ."
+  }
+}
+```
+
+# Create a src folder and an index.ts file
+```shell
+mkdir src
+touch src/index.ts
+```
+
+# Update index.ts
+```typescript
+import express from 'express';
+
+const app = express();
+const PORT = 3001;
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+```
+
+# Run the application
+```shell
+npm run dev
+```
